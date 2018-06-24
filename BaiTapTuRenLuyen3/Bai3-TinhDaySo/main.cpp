@@ -4,22 +4,29 @@ using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char** argv) {
+	
 	double x;
+	double S = 0;
 	int n;
-	double S;
-	int i = 1;
 	int mau = 1;
+	int mauphu = 1;
 	cout << "Nhap x: ";
 	cin >> x;
 	cout << "Nhap n: ";
 	cin >> n;
-	while(i <= n)
-	{
-		int tu = pow(x,i);
-		mau *= i;
-		S = S + (double)tu/mau;
-		i++;
+	for (int i = 0; i <= n; i++)
+	{	
+		int temp = (2*i)+1;
+		double tu = pow(x, temp);
+		mau = temp;
+		if(i == 0)
+		{	
+			S = S + tu/mau;
+			continue;		
+		}
+		mauphu = mauphu*mau*(mau-1);
+		S = S + tu/mauphu;	
 	}
-	cout << "S = " << S;
+	cout << S;
 	return 0;
 }
